@@ -14,11 +14,11 @@ router.get('/', async (req, res) => {
             ],
         });
 
-        const blogsData = getBlogs.map((blog) => blog.get({ plain: true }));
+        const blogs = getBlogs.map((blog) => blog.get({ plain: true }));
 
 
         res.render('homepage', {
-            blogsData,
+            blogs,
             logged_in: req.session.logged_in
         });
     } catch (err) {

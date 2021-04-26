@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Tea</title>
-</head>
-<body>
-    
-</body>
-</html>
+<!-- Loop over each object in the projects array -->
+{{#each blogs as |blog| }}
+<div class="row mb-4 blog">
+    <div class="col-md-5">
+        <h2>
+            <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+            {{{get_emoji}}}
+            <a href="/blog/{{blog.id}}">{{blog.title}}</a>
+        </h2>
+        {{!-- <p>
+            {{!-- <span for="img" aria-label="money">💲</span> --}}
+            <!-- Pass needed_funding value to the helper function -->
+            <span class="dollar-amount">{{format_amount blog.needed_funding}}</span>
+            needed!
+        </p> --}}
+        <p>Created by {{blog.user.username}}</p>
+    </div>
+    <div class="col-md-7">
+        <p>
+            {{blog.text}}
+        </p>
+    </div>
+</div>
+{{/each}}
